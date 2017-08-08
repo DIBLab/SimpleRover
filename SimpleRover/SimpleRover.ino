@@ -7,16 +7,38 @@
  * Control functions:
  * stop(), forward(), backward(), left(), right(), softLeft(), softRight()
  */
- 
+//Motor control variables
+ int STBY = 10; //standby
+
+  //Motor A
+  int PWMA = 3; //Speed control 
+  int AIN1 = 9; //Direction
+  int AIN2 = 8; //Direction
+  
+  //Motor B
+  int PWMB = 5; //Speed control
+  int BIN1 = 11; //Direction
+  int BIN2 = 12; //Direction
 
 void setup() {
   // put your setup code here, to run once:
+  // all connections are outputs
+  pinMode(STBY, OUTPUT);
+
+  pinMode(PWMA, OUTPUT);
+  pinMode(AIN1, OUTPUT);
+  pinMode(AIN2, OUTPUT);
+
+  pinMode(PWMB, OUTPUT);
+  pinMode(BIN1, OUTPUT);
+  pinMode(BIN2, OUTPUT);
+  
+  Serial.begin(9600);  
+  Serial.println("Ready!");
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  forward();
 } 
 
 
@@ -70,26 +92,27 @@ void move(int motor, int speed, int direction){
 void stop(){  
   move(1, 0, 0); //motor 1, stop
   move(2, 0, 0); //motor 2, stop
+  delay(100);
 }
 
 void forward(){
-  move(1, 56, 1); //motor 1, low speed, forward
-  move(2, 50, 1); //motor 2, low speed, forward
-  delay(1000);
+  move(1, 100, 1); //motor 1, low speed, forward
+  move(2, 100, 1); //motor 2, low speed, forward
+  delay(100);
   //stop();
 }
 
 void backward(){
   move(1, 54, 0); //motor 1, low speed, reverse
   move(2, 50, 0); //motor 2, low speed, reverse
-  delay(1000);
+  delay(100);
   //stop();
 }
 
 void left(){
   move(1, 50, 1); //motor 1, low speed, forward
   move(2, 50, 0); //motor 2, low speed, reverse
-  delay(1000);
+  delay(100);
   //stop();
 }
 
@@ -97,21 +120,7 @@ void right(){
   //go();
   move(1, 50, 0); //motor 1, low speed, reverse
   move(2, 50, 1); //motor 2, low speed, forward
-  delay(1000);
-  //stop();
-}
-
-void softLeft(){
-  move(1, 50, 1); //motor 1, low speed, forward
-  move(2, 50, 0); //motor 2, low speed, reverse
-  delay(500);
-  //stop();
-}
-
-void softRight(){
-  move(1, 50, 0); //motor 1, low speed, reverse
-  move(2, 50, 1); //motor 2, low speed, forward
-  delay(500);
+  delay(100);
   //stop();
 }
 
