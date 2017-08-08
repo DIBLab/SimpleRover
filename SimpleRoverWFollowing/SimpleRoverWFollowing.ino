@@ -1,4 +1,4 @@
-/*Experimentory 2016 Rover Blocking Project
+/*Wheeler School 2017 Robotics Summer Program
  * Starter code by: Meghan Jimenez
  * Additional code by:
  */
@@ -42,12 +42,11 @@ void setup() {
   pinMode(BIN2, OUTPUT);
   
   Serial.begin(9600);  
-  Serial.println("Ready to line follow!");
+  Serial.println("Ready!");
 
 }
 
 void loop() {
-  forward();
 } 
 
 
