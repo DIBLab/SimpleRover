@@ -1,4 +1,4 @@
-# Experimentory Rover
+# Simple Rover
 
 
 This starter code is for The Wheeler School DIB Lab Summer Program 2017. Students are creating a line 
